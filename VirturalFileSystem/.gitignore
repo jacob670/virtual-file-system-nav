@@ -1,1 +1,5 @@
-.Dependencies
+*.sln
+*suo
+.user
+obj/
+bin/
