@@ -1,7 +1,10 @@
+# Ignore build results
 bin/
 obj/
 
+# Rider specific files
 .idea/
 .idea/**
 
+# Ignore virtual file system cache
 .vfs/
