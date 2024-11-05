@@ -1,6 +1,6 @@
 namespace VirturalFileSystem;
 
-public class CommandHistory
+public class CommandHistory : Command
 {
     private readonly CommandStack<string> _commandHistory = new();
 
@@ -14,15 +14,13 @@ public class CommandHistory
         _commandHistory.Pop();
     }
     
-    public void Peek()
+    public string Peek()
     {
-        _commandHistory.Peek();
+        return _commandHistory.Peek();
     }
 
     public void PrintStack()
     {
         _commandHistory.PrintStack();
     }
-    
-
 }

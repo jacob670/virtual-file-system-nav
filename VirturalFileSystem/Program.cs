@@ -3,6 +3,7 @@ using System;
 
 CommandHistory commandHistory = new CommandHistory();
 Navigator navigator = new Navigator();
+Command com = new Command();
 
 bool applicationRunning = true; 
 string userHome = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
@@ -22,26 +23,37 @@ do
 
     Console.ForegroundColor = ConsoleColor.Blue;
     Console.Write("-> ");
-    String command = Console.ReadLine();
+    string command = Console.ReadLine();
+    
+    com.ExecuteCommand(command, navigator, commandHistory, userHome);
 
-    if (command == "ls")
-    {
-        List<string> a = navigator.LoadDirectories(userHome);
-        foreach (var i in a)
-        {
-            Console.WriteLine(i);
-        }
-        
-    }
-    
-    commandHistory.Push(command);
-    
+    commandHistory.PrintStack();
 
-    
+    // switch (command)
+    // {
+    //     case "ls":
+    //         List<string> basedDirectories = navigator.LoadDirectories(userHome);
+    //     
+    //         foreach (var dir in basedDirectories)
+    //         {
+    //             String a = getLast(dir);
+    //             Console.WriteLine($"[>>] {a}");
+    //         }
+    //         
+    //         
+    //         commandHistory.Push(command);
+    //         break;
+    //
+    //     default:
+    //         break;
+    // }
+
+
 
 
 
 } while (applicationRunning);
+
 
 static String GetValidDirectory()
 {
